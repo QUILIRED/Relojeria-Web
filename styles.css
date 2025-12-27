@@ -219,6 +219,7 @@ footer {
 }
 
 .slider {
+    position: relative;
     width: 100%;
     max-width: 800px;
     height: 400px;
@@ -229,27 +230,23 @@ footer {
 }
 
 .slider img {
-    width: 20%;
+    position: absolute;
+    width: 100%;
     height: 100%;
     object-fit: contain;
-    float: left;
-    animation: slide 16s infinite;
+    opacity: 0;
+    animation: fade 16s infinite;
 }
 
-.slider:hover img {
-    animation-play-state: paused;
-}
+.slider img:nth-child(1) { animation-delay: 0s; }
+.slider img:nth-child(2) { animation-delay: 3s; }
+.slider img:nth-child(3) { animation-delay: 6s; }
+.slider img:nth-child(4) { animation-delay: 9s; }
+.slider img:nth-child(5) { animation-delay: 12s; }
 
-@keyframes slide {
-    0% { transform: translateX(0); }
-    20% { transform: translateX(0); }
-    25% { transform: translateX(-100%); }
-    45% { transform: translateX(-100%); }
-    50% { transform: translateX(-200%); }
-    70% { transform: translateX(-200%); }
-    75% { transform: translateX(-300%); }
-    95% { transform: translateX(-300%); }
-    100% { transform: translateX(-400%); }
+@keyframes fade {
+    0%, 33% { opacity: 1; }
+    33.01%, 100% { opacity: 0; }
 }
 
 .modal {
@@ -313,8 +310,106 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .productos-container {
+    header {
+        padding: 30px 10px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    header button {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+
+    .slider {
+        height: 200px;
+        margin: 10px auto;
+    }
+
+    #productos-container {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .producto {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .producto-img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .carrusel {
+        height: 200px;
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #carrito-icon {
+        font-size: 16px;
+        padding: 5px;
+        left: 5px;
+        top: 40%;
+    }
+
+    #clock {
+        font-size: 16px;
+        padding: 10px;
+        margin: 5px auto;
+    }
+
+    #categorias-banner {
+        padding: 15px;
+        margin: 10px auto;
+    }
+
+    #categorias-banner h3 {
+        font-size: 20px;
+    }
+
+    #categorias-buttons {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .categoria-btn {
+        width: 100%;
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .modal-content {
+        width: 95%;
+        padding: 15px;
+        max-height: 90vh;
+    }
+
+    form {
+        gap: 8px;
+    }
+
+    input, textarea, select {
+        padding: 8px;
+    }
+
+    .producto-comparar {
+        width: 100%;
+        margin: 5px;
+    }
+
+    #busqueda input {
+        width: 250px;
+    }
+
+    #filtro-marca select {
+        width: 100%;
     }
 }
 .producto-img {
