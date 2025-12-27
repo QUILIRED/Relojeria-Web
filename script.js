@@ -51,6 +51,7 @@ function renderizarProductos(filtroMarca = '', busqueda = '') {
         div.style.animationDelay = `${index * 0.1}s`;
         if (producto.imagenes.length === 1) {
             div.innerHTML = `
+                <div class="ribbon">Pago Contraentrega</div>
                 <img src="${producto.imagenes[0]}" alt="${producto.nombre}" class="producto-img">
                 <h3>${producto.nombre}</h3>
                 <p>${producto.descripcion}</p>
