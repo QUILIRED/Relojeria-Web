@@ -77,6 +77,16 @@ Relojeria-Web/
 - **Pago simulado**: Redirige a WhatsApp con detalles del pedido para completar el pago.
 - **Persistencia de datos**: Todo se guarda localmente, permitiendo sesiones continuas.
 
+## 🔄 Próximas Mejoras
+
+- Integración con una base de datos real para persistencia de datos.
+- Sistema de autenticación de usuarios completo.
+- Integración con APIs de pago reales (Nequi, PayPal, etc.).
+- Panel de administración para vendedores.
+- Optimización de imágenes y carga lazy.
+- Soporte para múltiples idiomas.
+- Notificaciones push y correos electrónicos.
+
 ## 🤝 Contribución
 
 ¡Las contribuciones son bienvenidas! Si deseas mejorar la plataforma:
