@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relojes de Lujo - Venta Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Relojes de Lujo</h1>
+        <p>Descubre la elegancia y precisión de las mejores marcas: Rolex, Invicta, Richard Mille y más</p>
+        <div id="header-info" style="position: absolute; top: 10px; left: 10px; color: white; font-size: 18px; cursor: pointer;">Favoritos: <span id="favoritos-count-header">0</span></div>
+        <button id="theme-toggle" style="position: absolute; top: 10px; right: 10px; background: rgba(255,255,255,0.2); color: white; border: none; padding: 8px 16px; border-radius: 25px; cursor: pointer;">🌙 Modo Oscuro</button>
+    </header>
+
+    <div class="slider">
+        <!-- Imágenes se cargarán dinámicamente -->
+    </div>
+    <div id="carrito-icon" style="position: fixed; left: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; font-size: 24px; background-color: rgba(0,0,0,0.5); color: white; padding: 10px; border-radius: 5px; z-index: 1001;">🛒 <span id="carrito-count">0</span></div>
+    
+    <div id="clock"></div>
+    <div id="ratings-display"></div>
+
+    <!-- Banner de Categorías -->
+    <div id="categorias-banner">
+        <h3>Categorías de Relojes</h3>
+        <div id="categorias-buttons">
+            <button class="categoria-btn" data-marca="">Todas</button>
+            <button class="categoria-btn" data-marca="Rolex">Rolex</button>
+            <button class="categoria-btn" data-marca="Invicta">Invicta</button>
+            <button class="categoria-btn" data-marca="Richard Mille">Richard Mille</button>
+            <button class="categoria-btn" data-marca="Omega">Omega</button>
+            <button class="categoria-btn" data-marca="Tag Heuer">Tag Heuer</button>
+            <button class="categoria-btn" data-marca="Seiko">Seiko</button>
+            <button class="categoria-btn" data-marca="Casio">Casio</button>
+        </div>
+    </div>
+    <section id="productos">
+        <h2>Relojes Disponibles</h2>
+        <div id="busqueda">
+            <input type="text" id="busqueda-input" placeholder="Buscar productos por nombre, marca o descripción..." list="sugerencias">
+            <datalist id="sugerencias"></datalist>
+            <button id="busqueda-btn">Buscar</button>
+        </div>
+        <div id="filtro-marca">
+            <label for="marca-select">Filtrar por Marca:</label>
+            <select id="marca-select">
+                <option value="">Todas las Marcas</option>
+                <option value="Rolex">Rolex</option>
+                <option value="Invicta">Invicta</option>
+                <option value="Richard Mille">Richard Mille</option>
+                <option value="Omega">Omega</option>
+                <option value="Tag Heuer">Tag Heuer</option>
+                <option value="Seiko">Seiko</option>
+                <option value="Casio">Casio</option>
+            </select>
+        </div>
+        <div id="productos-container">
+            <!-- Productos se cargarán dinámicamente -->
+        </div>
+    </section>
+
+
+
+
+    
+
+    <footer>
+        <p>&copy; 2025 Relojes de Lujo. Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="carrito-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Carrito de Compras</h2>
+            <div id="carrito-items"></div>
+            <button id="checkout-btn">Proceder al Pago</button>
+            <div id="checkout" style="display: none;">
+                <h3>Checkout - Pago con Nequi</h3>
+                <div id="checkout-total"></div>
+                <form id="checkout-form">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" required>
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" required oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    <button type="submit">Pagar con Nequi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="rating-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="close-rating">&times;</span>
+            <h2>¿Cómo calificarías nuestra página?</h2>
+            <div class="stars">
+                <span class="star" data-value="1">★</span>
+                <span class="star" data-value="2">★</span>
+                <span class="star" data-value="3">★</span>
+                <span class="star" data-value="4">★</span>
+                <span class="star" data-value="5">★</span>
+            </div>
+            <button id="submit-rating">Enviar Calificación</button>
+        </div>
+    </div>
+
+    <div id="reviews-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="close-reviews">&times;</span>
+            <h2 id="reviews-title">Reseñas del Producto</h2>
+            <div id="reviews-list"></div>
+            <h3>Agregar Reseña</h3>
+            <form id="review-form">
+                <label for="review-name">Nombre:</label>
+                <input type="text" id="review-name" required>
+                <label for="review-rating">Calificación:</label>
+                <select id="review-rating" required>
+                    <option value="">Selecciona</option>
+                    <option value="5">5 ★</option>
+                    <option value="4">4 ★</option>
+                    <option value="3">3 ★</option>
+                    <option value="2">2 ★</option>
+                    <option value="1">1 ★</option>
+                </select>
+                <label for="review-comment">Comentario:</label>
+                <textarea id="review-comment" required></textarea>
+                <button type="submit">Enviar Reseña</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="favoritos-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close" id="close-favoritos">&times;</span>
+            <h2>Mis Favoritos</h2>
+            <div id="favoritos-list"></div>
+        </div>
+    </div>
+
+    <div id="comparador-modal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 1200px;">
+            <span class="close" id="close-comparador">&times;</span>
+            <h2>Comparar Productos</h2>
+            <div id="comparador-list" style="display: flex; justify-content: space-around;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
