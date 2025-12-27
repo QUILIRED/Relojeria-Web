@@ -219,7 +219,6 @@ footer {
 }
 
 .slider {
-    position: relative;
     width: 100%;
     max-width: 800px;
     height: 400px;
@@ -230,23 +229,27 @@ footer {
 }
 
 .slider img {
-    position: absolute;
-    width: 100%;
+    width: 20%;
     height: 100%;
     object-fit: contain;
-    opacity: 0;
-    animation: fade 16s infinite;
+    float: left;
+    animation: slide 16s infinite;
 }
 
-.slider img:nth-child(1) { animation-delay: 0s; }
-.slider img:nth-child(2) { animation-delay: 3s; }
-.slider img:nth-child(3) { animation-delay: 6s; }
-.slider img:nth-child(4) { animation-delay: 9s; }
-.slider img:nth-child(5) { animation-delay: 12s; }
+.slider:hover img {
+    animation-play-state: paused;
+}
 
-@keyframes fade {
-    0%, 33% { opacity: 1; }
-    33.01%, 100% { opacity: 0; }
+@keyframes slide {
+    0% { transform: translateX(0); }
+    20% { transform: translateX(0); }
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    95% { transform: translateX(-300%); }
+    100% { transform: translateX(-400%); }
 }
 
 .modal {
